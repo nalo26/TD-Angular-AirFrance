@@ -1,1 +1,8 @@
 <!-- Affichage de la liste des vols -->
+<ng-container *ngIf="vols != null">
+  <div>
+    <div *ngFor="let vol of vols">
+      <app-vol [vol]="vol" (click)="click(vol)"></app-vol>
+    </div>
+  </div>
+</ng-container>
