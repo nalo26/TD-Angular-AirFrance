@@ -1,6 +1,7 @@
 <!-- Affichage d'un passager -->
 <div class="passenger">
-  <div><img src="{{ passager.image }}" /></div>
+  <div *ngIf="displayPassengerPicture; else anonymous"><img class="image" src="{{ passager.image }}" /></div>
+  <ng-template #anonymous><img class="image" src="/assets/anonymous.png" /></ng-template>
   <div>{{ passager.nom }}</div>
   <div class="attribute" [appClasseVol]="passager.classeVol">{{ passager.classeVol }}</div>
   <div class="icon attribute" [appCheckLuggageLimit]="passager"><mat-icon>work</mat-icon>x{{ passager.nbBagagesSoute }}</div>

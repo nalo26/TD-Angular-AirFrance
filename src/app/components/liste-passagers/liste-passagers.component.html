@@ -1,8 +1,9 @@
 <!-- Affichage de la liste des passagers -->
+<mat-slide-toggle [checked]="displayPassengersPicture" (change)="update($event)">Toogle passenger pictures</mat-slide-toggle>
 <ng-container *ngIf="passengers">
   <div>
     <div *ngFor="let passenger of passengers">
-      <app-passager [passager]="passenger"></app-passager>
+      <app-passager [passager]="passenger" [displayPassengerPicture]="displayPassengersPicture"></app-passager>
     </div>
   </div>
 </ng-container>

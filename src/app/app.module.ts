@@ -39,7 +39,7 @@ registerLocaleData(localeFr, 'fr');
     PassagerComponent,
     ViewAirFranceComponent,
     ClasseVolDirective,
-    CheckLuggageLimitDirective
+    CheckLuggageLimitDirective,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +56,7 @@ registerLocaleData(localeFr, 'fr');
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr' },

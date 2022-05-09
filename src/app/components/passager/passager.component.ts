@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Passager } from 'src/app/models/passager.model';
 
 @Component({
@@ -8,8 +8,5 @@ import { Passager } from 'src/app/models/passager.model';
 })
 export class PassagerComponent {
   @Input() passager!: Passager;
-
-
-
-
+  @Input() displayPassengerPicture!: boolean;
 }
