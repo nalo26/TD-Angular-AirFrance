@@ -9,7 +9,7 @@ import { Vol } from 'src/app/models/vol.model';
 export class ListeVolsComponent {
   @Input() vols!: Vol[] | undefined;
   @Output() vol_emitter: EventEmitter<Vol> = new EventEmitter();
-
+  @Input() type!: string;
   click(vol: Vol): void {
     this.vol_emitter.emit(vol);
   }

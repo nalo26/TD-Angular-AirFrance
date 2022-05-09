@@ -15,9 +15,10 @@ export class VolService {
    * Récupération de la liste des vols en départ d'un aéroport donné en paramètre et selon un intervalle de temps donné.
    * Open Sky REST API
    * https://openskynetwork.github.io/opensky-api/rest.html#departures-by-airport
+   * departure / arrival
    */
-  getVolsDepart(code: string, debut: number, fin: number): Observable<Vol[]> {
-    return this.http.get<any>(`https://opensky-network.org/api/flights/departure?airport=${code}&begin=${debut}&end=${fin}`).pipe(
+  getVols(code: string, debut: number, fin: number, direction: string): Observable<Vol[]> {
+    return this.http.get<any>(`https://opensky-network.org/api/flights/${direction}?airport=${code}&begin=${debut}&end=${fin}`).pipe(
       map((response) => response
         .filter((dto: IVolDto) => this._estUnVolAirFrance(dto))
         .map((dto: IVolDto) => new Vol(dto))

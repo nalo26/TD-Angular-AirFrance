@@ -6,6 +6,7 @@ import { VolService } from '../../services/vol.service';
 import { PassagerService } from '../../services/passager.service';
 import { Passager } from 'src/app/models/passager.model';
 import { ActivatedRoute } from '@angular/router';
+import { TYPE } from 'src/app/constants/type_atterissage.constant';
 
 @Component({
   selector: 'app-view-airfrance',
@@ -15,7 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ViewAirFranceComponent implements OnDestroy, OnInit {
   vols!: Vol[];
   passagers!: Passager[];
-  private type!: String;
+  type!: string;
   private _subscription: Subscription = new Subscription();
 
   constructor(
@@ -27,7 +28,7 @@ export class ViewAirFranceComponent implements OnDestroy, OnInit {
   ngOnInit(): void {
     let subscription: Subscription = this._activatedRoute.data.subscribe(
       (data$) => {
-        this.type = data$['type'] ? data$['type'] : 'decollages';
+        this.type = data$['type'] ? data$['type'] : TYPE.DEPARTURE;
       }
     );
     this._subscription.add(subscription);
@@ -41,10 +42,11 @@ export class ViewAirFranceComponent implements OnDestroy, OnInit {
    */
   onFiltresEvent(filtres: IFiltres): void {
     let subscription: Subscription = this._volService
-      .getVolsDepart(
+      .getVols(
         filtres.aeroport.icao,
         filtres.debut.getTime() / 1000,
-        filtres.fin.getTime() / 1000
+        filtres.fin.getTime() / 1000,
+        this.type
       )
       .subscribe((vols) => {
         this.vols = vols;

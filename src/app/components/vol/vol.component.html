@@ -1,8 +1,13 @@
 <!-- Affichage d'un vol -->
 <div class="vol">
-  <div class="icon">
+  <div class="icon" *ngIf="type == 'departure'; else atterissage">
     <mat-icon>flight_takeoff</mat-icon>
   </div>
+  <ng-template #atterissage>
+    <div class="icon">
+      <mat-icon>flight_land</mat-icon>
+    </div>
+  </ng-template>
   <div>{{ vol.icao }}</div>
   <div>{{ vol.matricule }}</div>
   <div>{{ vol.compagnie }}</div>

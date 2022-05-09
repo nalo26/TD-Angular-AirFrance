@@ -8,4 +8,5 @@ import { Vol } from 'src/app/models/vol.model';
 })
 export class VolComponent {
   @Input() vol!: Vol;
+  @Input() type!: string;
 }
