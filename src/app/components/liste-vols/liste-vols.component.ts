@@ -8,9 +8,7 @@ import { Vol } from 'src/app/models/vol.model';
 })
 export class ListeVolsComponent {
   @Input() vols!: Vol[] | undefined;
-  @Output() vol_emitter : EventEmitter<Vol> = new EventEmitter()
-
-
+  @Output() vol_emitter: EventEmitter<Vol> = new EventEmitter();
 
   click(vol: Vol): void {
     this.vol_emitter.emit(vol);
