@@ -24,6 +24,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ViewAirFranceComponent } from './components/view-airfrance/view-airfrance.component';
 import { VolComponent } from './components/vol/vol.component';
 import { ClasseVolDirective } from './classe-vol.directive';
+import { CheckLuggageLimitDirective } from './check-luggage-limit.directive';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -37,7 +38,8 @@ registerLocaleData(localeFr, 'fr');
     ListePassagersComponent,
     PassagerComponent,
     ViewAirFranceComponent,
-    ClasseVolDirective
+    ClasseVolDirective,
+    CheckLuggageLimitDirective
   ],
   imports: [
     BrowserModule,

@@ -3,5 +3,5 @@
   <div><img src="{{ passager.image }}" /></div>
   <div>{{ passager.nom }}</div>
   <div class="attribute" [appClasseVol]="passager.classeVol">{{ passager.classeVol }}</div>
-  <div class="icon"><mat-icon>work</mat-icon>x{{ passager.nbBagagesSoute }}</div>
+  <div class="icon attribute" [appCheckLuggageLimit]="passager"><mat-icon>work</mat-icon>x{{ passager.nbBagagesSoute }}</div>
 </div>
