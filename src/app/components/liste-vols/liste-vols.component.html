@@ -1,8 +1,50 @@
 <!-- Affichage de la liste des vols -->
-<ng-container *ngIf="vols != null">
-  <div>
-    <div *ngFor="let vol of vols">
-      <app-vol [vol]="vol" [type]="type" (click)="click(vol)"></app-vol>
-    </div>
-  </div>
-</ng-container>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>ICAO</th>
+      <th>Numero vol</th>
+      <th>Companie</th>
+      <th>
+        Départ
+        <span class="icon">
+          <mat-icon>arrow_right_alt</mat-icon>
+        </span>
+        Arrivée
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Affichage d'un vol -->
+    <tr *ngFor="let vol of vols" (click)="click(vol)">
+      <td class="icon" *ngIf="type == 'departure'; else atterissage">
+        <mat-icon>flight_takeoff</mat-icon>
+      </td>
+      <ng-template #atterissage>
+        <td class="icon">
+          <mat-icon>flight_land</mat-icon>
+        </td>
+      </ng-template>
+      <td>{{ vol.icao }}</td>
+      <td>{{ vol.matricule }}</td>
+      <td>{{ vol.compagnie }}</td>
+      <td>
+        <span *ngIf="vol.aeroportDepart; else inconnu">
+          {{ vol.aeroportDepart }}
+        </span>
+        <span class="icon">
+          <mat-icon>arrow_right_alt</mat-icon>
+        </span>
+        <span *ngIf="vol.aeroportArrivee; else inconnu">
+          {{ vol.aeroportArrivee }}
+        </span>
+        <ng-template #inconnu>Inconnu</ng-template>
+      </td>
+      <td>
+        <img src="/assets/{{ vol.compagnie }}.png" />
+      </td>
+    </tr>
+  </tbody>
+</table>

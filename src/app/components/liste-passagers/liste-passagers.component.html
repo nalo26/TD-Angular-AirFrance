@@ -1,9 +1,24 @@
 <!-- Affichage de la liste des passagers -->
-<mat-slide-toggle [checked]="displayPassengersPicture" (change)="update($event)">Toogle passenger pictures</mat-slide-toggle>
-<ng-container *ngIf="passengers">
-  <div>
-    <div *ngFor="let passenger of passengers">
-      <app-passager [passager]="passenger" [displayPassengerPicture]="displayPassengersPicture"></app-passager>
-    </div>
-  </div>
-</ng-container>
+<mat-slide-toggle [checked]="displayPassengersPicture" (change)="update($event)"
+  >Afficher les images</mat-slide-toggle
+>
+
+<!-- Affichage de la liste des passager -->
+<table>
+  <tr *ngFor="let passager of passengers" class="passenger">
+    <td *ngIf="displayPassengersPicture; else anonymous">
+      <img class="image" src="{{ passager.image }}" />
+    </td>
+    <ng-template #anonymous>
+      <td><img class="image" src="/assets/anonymous.png" /></td>
+    </ng-template>
+    <td matTooltip="{{ passager.email }}">{{ passager.nom }}</td>
+    <td class="attribute" [appClasseVol]="passager.classeVol">
+      {{ passager.classeVol }}
+    </td>
+    <td class="attribute" [appCheckLuggageLimit]="passager">
+      <span class="icon"><mat-icon>work</mat-icon></span
+      ><span>x{{ passager.nbBagagesSoute }}</span>
+    </td>
+  </tr>
+</table>

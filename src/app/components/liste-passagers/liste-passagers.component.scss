@@ -1,0 +1,28 @@
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  tr {
+    height: 50px;
+
+    td {
+      text-align: center;
+    }
+  }
+
+  img {
+    width: 100px;
+  }
+}
+
+tr:nth-child(even) {
+  background: rgb(234, 233, 233);
+}
+tr:nth-child(odd) {
+  background: #fff;
+}
+
+.icon {
+  vertical-align: middle;
+}

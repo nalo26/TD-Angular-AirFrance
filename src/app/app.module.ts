@@ -25,6 +25,7 @@ import { ViewAirFranceComponent } from './components/view-airfrance/view-airfran
 import { VolComponent } from './components/vol/vol.component';
 import { ClasseVolDirective } from './classe-vol.directive';
 import { CheckLuggageLimitDirective } from './check-luggage-limit.directive';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -57,11 +58,12 @@ registerLocaleData(localeFr, 'fr');
     MatDatepickerModule,
     MatNativeDateModule,
     MatSlideToggleModule,
+    MatTooltipModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr' },
     { provide: MAT_DATE_LOCALE, useValue: 'fr-FR' },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

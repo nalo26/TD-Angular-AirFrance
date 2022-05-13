@@ -1,0 +1,33 @@
+table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  tr {
+    height: 60px;
+    border-bottom: 1px solid #ccc;
+
+    td {
+      text-align: center;
+    }
+  }
+
+  img {
+    width: 100px;
+  }
+}
+
+thead {
+  tr {
+    border-bottom: 1px solid grey;
+  }
+  th {
+    position: sticky;
+    top: 0;
+    background-color: white;
+  }
+}
+
+.icon {
+  vertical-align: middle;
+}
